@@ -1,0 +1,26 @@
+{% extends "../base.njk" %}
+
+{% block content %}
+
+
+<div style="border:1px dashed red; padding:1em; margin:1em auto;">
+  <a href="/todo" role="button" class="btn btn-primary">Return to list</a>
+  &nbsp;
+  <a href="/todo/{{id}}/edit" role="button" class="btn btn-warning">Edit todo</a>
+  <form action="/todo/{{id}}?_method=DELETE" method="post">
+    <button type="submit" name="button">DELETE</button>
+  </form>
+</div>
+
+  <div class="card" style="top:0em;">
+    <div class="card-header">{{title}}  <span class="badge badge-primary">{{priority}}</span></div>
+    <div class="card-block">
+    <p class="card-text">{{description}}</p>
+    <small>Created on {{createdAt}}</small>
+    </div>
+
+  </div>
+
+
+
+{% endblock %}

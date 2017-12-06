@@ -1,0 +1,41 @@
+{% extends "../base.njk" %}
+
+{% block content %}
+{% if errors %}
+
+<div class="alert alert-danger">
+
+    {% for error in errors %}
+        <p>{{error.message}}</p>
+    {% endfor %}
+</div>
+{% endif %}
+<a href="/todo" role="button" class="btn btn-primary">Return to list</a>
+<div style="border:2px dashed gray; top:3em;" class="container">
+    <form style="padding:1em;" method="post" autocomplete="off" action="/todo">
+      <div class="form-group">
+        <label>Todo</label>
+        <input type="text" class="form-control" placeholder="Enter todo" name="todo">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" name="description" rows="8" cols="80" placeholder="Enter description"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Priority</label>
+        <select class="form-control" name="priority">
+            <option value="1">Priority 1</option>
+            <option value="2">Priority 2</option>
+            <option value="3">Priority 3</option>
+            <option value="4">Priority 4</option>
+            <option value="5">Priority 5</option>
+        </select>
+      </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+
+
+{% endblock %}
